@@ -19,7 +19,11 @@ describe('exampleFunction', () => {
   })
 
   it('implement tests here', () => {
-    return wrapped.run({}).then((response) => {
+    return wrapped.run({
+      body: JSON.stringify({
+        parameter: 'value'
+      })
+    }).then((response) => {
       expect(response).to.not.be.empty()
     })
   })

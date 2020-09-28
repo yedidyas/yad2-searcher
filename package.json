@@ -20,6 +20,8 @@
     "standard": "^11.0.1"
   },
   "dependencies": {
-    "aws-sdk": "^2.462.0"
+    "aws-sdk": "^2.462.0",
+    "nyc": "^15.1.0",
+    "serverless-mocha-plugin": "^1.12.0"
   }
 }
