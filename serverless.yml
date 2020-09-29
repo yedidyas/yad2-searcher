@@ -41,17 +41,17 @@ provider:
 #    - exclude-me.js
 #    - exclude-me-dir/**
 functions:
-  exampleFunction:
+  search:
     tags:
-      Name: ${self:service}-function-exampleFunction
+      Name: ${self:service}-function-search
       infrastructure_tier: Lambda
-    iamRoleStatementsName: ${self:service}-exampleFunction-IAMRole-${opt:stage, self:service.stage}
+    iamRoleStatementsName: ${self:service}-search-IAMRole-${opt:stage, self:service.stage}
     iamRoleStatements:
       - Effect: Allow
         Action:
           - resource:action
         Resource: '*'
-    handler: src/functions/exampleFunction.exampleFunction
+    handler: src/functions/search.search
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details

@@ -21,7 +21,10 @@
   },
   "dependencies": {
     "aws-sdk": "^2.462.0",
+    "axios": "^0.20.0",
+    "mongoose": "^5.10.7",
     "nyc": "^15.1.0",
-    "serverless-mocha-plugin": "^1.12.0"
+    "serverless-mocha-plugin": "^1.12.0",
+    "validator": "^13.1.17"
   }
 }
