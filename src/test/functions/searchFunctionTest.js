@@ -24,6 +24,7 @@ describe('search', () => {
         parameter: 'value'
       })
     }).then((response) => {
+      console.log(`response: ${JSON.stringify(response)}`);
       expect(response).to.not.be.empty()
     })
   })
