@@ -20,7 +20,7 @@ module.exports.search = async (event, context, callback) => {
   const promisesResults = await Promise.all(promises);
   const arrayPromisesResults = [].concat.apply([], promisesResults);
   const currentResults = uniq = [...new Set(arrayPromisesResults)];
-  
+
   const deltaBetweenOldToCurrentResults = currentResults
     .filter(x => !oldResults.includes(x))
     .concat(oldResults.filter(x => !currentResults.includes(x)));
@@ -31,6 +31,6 @@ module.exports.search = async (event, context, callback) => {
 
   callback(null, {
           statusCode: 200,
-          body: [].concat.apply([], deltaBetweenOldToCurrentResults)
+          body: deltaBetweenOldToCurrentResults
         });  
 };
