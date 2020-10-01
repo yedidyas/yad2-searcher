@@ -22,6 +22,7 @@
   "dependencies": {
     "aws-sdk": "^2.462.0",
     "axios": "^0.20.0",
+    "fs": "0.0.2",
     "mongoose": "^5.10.7",
     "nyc": "^15.1.0",
     "serverless-mocha-plugin": "^1.12.0",
