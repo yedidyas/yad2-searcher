@@ -27,5 +27,5 @@ describe('search', () => {
       console.log(`response: ${JSON.stringify(response)}`);
       expect(response).to.not.be.empty()
     })
-  })
+  }).timeout(10000); 
 })

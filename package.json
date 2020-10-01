@@ -4,6 +4,7 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
+    "search": "mocha src/test/functions/searchFunctionTest.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yedidya Schwartz",

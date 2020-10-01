@@ -5,7 +5,7 @@ const data = require('../data');
 const filesManager = require('../services/filesManager');
 
 // To open an item: 
-// https://www.yad2.co.il/item/link_token
+// https://www.yad2.co.il/item/kpm7oy
 
 module.exports.search = async (event, context, callback) => {
   const promises = [];
