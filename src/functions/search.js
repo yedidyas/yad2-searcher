@@ -19,7 +19,7 @@ module.exports.search = async (event, context, callback) => {
     promises.push(yad2Caller.search(data.searchData[i].city, data.searchData[i].neighborhood, data.searchData[i].name, dir));
   }
 
-  const oldresultsFileContext = await filesManager.read('currentResults');
+  const oldresultsFileContext = await filesManager.read('currentResults.txt');
   const oldResults = oldresultsFileContext.split(',');
 
   const promisesResults = await Promise.all(promises);
