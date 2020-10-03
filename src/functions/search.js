@@ -24,7 +24,7 @@ module.exports.search = async (event, context, callback) => {
 
   const promisesResults = await Promise.all(promises);
   const arrayPromisesResults = [].concat.apply([], promisesResults);
-  const currentResults = uniq = [...new Set(arrayPromisesResults)];
+  const currentResults = [...new Set(arrayPromisesResults)];
 
   const deltaBetweenOldToCurrentResults = currentResults
     .filter(x => !oldResults.includes(x))
