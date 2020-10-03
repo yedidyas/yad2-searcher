@@ -20,8 +20,19 @@ async function read(fileName) {
     }
 }
 
+async function mkdir(dir) {
+    try {
+        if (!fs.existsSync(dir)){
+            fs.mkdirSync(dir);
+        }
+    } catch (ex) {
+        console.log(`Failed creting dir ${dir} with error: ${ex}`);
+    }
+}
+
 
 module.exports = {
     write: write,
-    read: read
+    read: read,
+    mkdir: mkdir
 }

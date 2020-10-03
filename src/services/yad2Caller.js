@@ -1,6 +1,7 @@
 const axios = require('axios');
+const filesManager = require('../services/filesManager');
 
-const search = async (city, neighborhood, name) => {
+const search = async (city, neighborhood, name, filesDir) => {
     return new Promise(async (resolve, reject) => {
         try {
         const res = await axios.get(`https://www.yad2.co.il/api/pre-load/getFeedIndex/realestate/forsale?city=${city}&neighborhood=${neighborhood}&property=1&rooms=4-4&price=1850000-2040000&parking=1&elevator=1&floor=1--1`,
@@ -12,6 +13,8 @@ const search = async (city, neighborhood, name) => {
                 'Connection': 'keep-alive'
             }
         });    
+
+        await filesManager.write(JSON.stringify(res.data.feed.feed_items), `${filesDir}\\${name}.json`);
 
         const filteredResults = filterResults(res);
         console.log(`Search ${name} finished successfully`);
