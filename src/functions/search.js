@@ -11,12 +11,11 @@ module.exports.search = async (event, context, callback) => {
   const promises = [];
 
   const folderName = new Date().toLocaleString().replace(/:/g,"-").replace(/\//g,"-").replace(/,/g,"");
-  
   const dir = `resultsHistory\\${folderName}`;
   await filesManager.mkdir(dir);
 
-  for (let i = 0; i < data.searchData.length; i++) {
-    promises.push(yad2Caller.search(data.searchData[i].city, data.searchData[i].neighborhood, data.searchData[i].name, dir));
+  for (item of data.searchData) {
+    promises.push(yad2Caller.search(item.city, item.neighborhood, item.name, dir));
   }
 
   const oldresultsFileContext = await filesManager.read('currentResults.txt');
@@ -27,8 +26,7 @@ module.exports.search = async (event, context, callback) => {
   const currentResults = [...new Set(arrayPromisesResults)];
 
   const deltaBetweenOldToCurrentResults = currentResults
-    .filter(x => !oldResults.includes(x))
-    .concat(oldResults.filter(x => !currentResults.includes(x)));
+    .filter(x => !oldResults.includes(x));
 
   await filesManager.write(oldResults, 'oldResults.txt');
   await filesManager.write(currentResults, 'currentResults.txt');
